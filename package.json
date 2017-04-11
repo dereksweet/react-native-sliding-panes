@@ -1,6 +1,6 @@
 {
   "name": "react-native-sliding-panes",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A simple set of React Native components that allow for views that slide in and out on command",
   "main": "index.js",
   "scripts": {
