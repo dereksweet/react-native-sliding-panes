@@ -12,7 +12,7 @@ From a terminal navigate to your project folder and type:
 
 or add the following line to your dependencies within package.json and then `npm install`
 
-`"react-native-sliding-panes": "1.0.1"`
+`"react-native-sliding-panes": "1.0.2"`
 
 ### Usage
 #### SlidingPane
@@ -51,7 +51,7 @@ You can use any number of SlidingPane components within a SlidingPaneWrapper to 
 Simply put the `<SlidingPaneWrapper>` tag wherever you would like your set of sliding panes to appear. Again, you can pass the wrapper whatever styles you like just as if it were a normal `<View>` tag. You will have to also create a ref to the wrapper so that you can use the member functions to animate the child panes. Here is an abbreviated sample, see the 'Example' folder code for a working example as demonstrated in the animated GIF above:
 
 ```
-<SlidingPaneWrapper style={{}} ref={(slidingPaneWrapper) => { this.slidingPaneWrapper = slidingPaneWrapper }}>
+<SlidingPaneWrapper style={{ flex: 1 }} ref={(slidingPaneWrapper) => { this.slidingPaneWrapper = slidingPaneWrapper }}>
   <SlidingPane ref={ (pane1) => { this.pane1 = pane1} }>
       <View><Text>Pane 1</Text</View>
   </SlidingPane>
