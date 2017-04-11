@@ -12,7 +12,7 @@ From a terminal navigate to your project folder and type:
 
 or add the following line to your dependencies within package.json and then `npm install`
 
-`"react-native-sliding-panes": "1.0.2"`
+`"react-native-sliding-panes": "1.0.3"`
 
 ### Usage
 #### SlidingPane
