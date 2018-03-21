@@ -8,9 +8,9 @@
 	},
 	"dependencies": {
 		"react": "16.0.0-alpha.6",
-		"react-native": "0.43.2",
+		"react-native": "0.43.4",
 		"react-native-swipe-gestures": "^1.0.2",
-		"react-native-sliding-panes": "1.0.0"
+		"react-native-sliding-panes": "file:../"
 	},
 	"devDependencies": {
 		"babel-jest": "19.0.0",
