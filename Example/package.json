@@ -8,7 +8,7 @@
 	},
 	"dependencies": {
 		"react": "16.0.0-alpha.6",
-		"react-native": "0.43.4",
+		"react-native": "0.44.3",
 		"react-native-swipe-gestures": "^1.0.2",
 		"react-native-sliding-panes": "file:../"
 	},
