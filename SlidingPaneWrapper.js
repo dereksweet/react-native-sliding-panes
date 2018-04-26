@@ -52,7 +52,7 @@ export default class SlidingPaneWrapper extends React.Component {
   render() {
     return (
       <View
-        style={[...this.props.style, { flex: 1 }]}>
+        style={{ ...this.props.style, flex: 1 }}>
         {this.props.children}
       </View>
     );
