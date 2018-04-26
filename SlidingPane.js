@@ -46,7 +46,7 @@ export default class SlidingPane extends React.Component {
   render() {
     return (
       <Animated.View
-        style={[...this.props.style, { position: 'absolute', width: '100%', height: '100%', left: this.state.leftAnim }]}>
+        style={{ ...this.props.style, position: 'absolute', width: '100%', height: '100%', left: this.state.leftAnim }}>
         {this.props.children}
       </Animated.View>
     );
