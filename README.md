@@ -53,13 +53,13 @@ Simply put the `<SlidingPaneWrapper>` tag wherever you would like your set of sl
 ```
 <SlidingPaneWrapper style={{ flex: 1 }} ref={(slidingPaneWrapper) => { this.slidingPaneWrapper = slidingPaneWrapper }}>
   <SlidingPane ref={ (pane1) => { this.pane1 = pane1} }>
-      <View><Text>Pane 1</Text</View>
+      <View><Text>Pane 1</Text></View>
   </SlidingPane>
   <SlidingPane ref={ (pane2) => { this.pane2 = pane2} }>
-      <View><Text>Pane 2</Text</View>
+      <View><Text>Pane 2</Text></View>
   </SlidingPane>
   <SlidingPane ref={ (pane3) => { this.pane3 = pane3} }>
-      <View><Text>Pane 3</Text</View>
+      <View><Text>Pane 3</Text></View>
   </SlidingPane>
 </SlidingPaneWrapper>
 ``` 
