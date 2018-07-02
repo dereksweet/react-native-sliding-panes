@@ -1,5 +1,7 @@
 # react-native-sliding-panes
 
+Compatible with up to React Native 0.54.1
+
 A simple set of React Native components that allow for views that slide in and out on command. They can be wired up to a Gesture Recognizer for swiping, or to touchable highlights for quick navigation. Here is a quick view of the example project:
 
 ![example](http://i.imgur.com/cYui5Uf.gif)
