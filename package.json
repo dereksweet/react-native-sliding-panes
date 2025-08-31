@@ -1,8 +1,18 @@
 {
   "name": "react-native-sliding-panes",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "A simple set of React Native components that allow for views that slide in and out on command",
   "main": "index.js",
+  "react-native": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "SlidingPane.js",
+    "SlidingPaneWrapper.js",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,5 +33,12 @@
   "bugs": {
     "url": "https://github.com/dereksweet/react-native-sliding-panes/issues"
   },
-  "homepage": "https://github.com/dereksweet/react-native-sliding-panes#readme"
+  "homepage": "https://github.com/dereksweet/react-native-sliding-panes#readme",
+  "peerDependencies": {
+    "react": ">=17 <19",
+    "react-native": ">=0.64"
+  },
+  "engines": {
+    "node": ">=14"
+  }
 }

@@ -1,6 +1,6 @@
 # react-native-sliding-panes
 
-Compatible with up to React Native 0.54.1
+Compatible with modern React Native (tested with React Native 0.7x and React 18). If you need the legacy example project from RN 0.53, see the note at the bottom.
 
 A simple set of React Native components that allow for views that slide in and out on command. They can be wired up to a Gesture Recognizer for swiping, or to touchable highlights for quick navigation. Here is a quick view of the example project:
 
@@ -8,20 +8,20 @@ A simple set of React Native components that allow for views that slide in and o
 
 ### Installation
 
-From a terminal navigate to your project folder and type: 
+From a terminal navigate to your project folder and type:
 
-`npm install react-native-sliding-panes --save`
+`npm install react-native-sliding-panes`
 
 or add the following line to your dependencies within package.json and then `npm install`
 
-`"react-native-sliding-panes": "1.0.3"`
+`"react-native-sliding-panes": "^2.0.0"`
 
 ### Usage
 #### SlidingPane
 
-The SlidingPane component can be used all on its own, or with any number of other SlidingPane instances within a SlidingPaneWrapper component. 
+The SlidingPane component can be used all on its own, or with any number of other SlidingPane instances within a SlidingPaneWrapper component.
 
-To use SlidingPane by itself be sure to import the class at the top of the file you want to use it: 
+To use SlidingPane by itself be sure to import the class at the top of the file you want to use it:
 
 `import {SlidingPane} from 'react-native-sliding-panes';`
 
@@ -64,7 +64,7 @@ Simply put the `<SlidingPaneWrapper>` tag wherever you would like your set of sl
       <View><Text>Pane 3</Text></View>
   </SlidingPane>
 </SlidingPaneWrapper>
-``` 
+```
 
 Within the component that contains the SlidingPaneWrapper, you will need a `componentDidMount()` method that sets up the sliding pane wrapper and the panes within. Here is an example:
 
@@ -81,8 +81,75 @@ Now you can use the SlidingPaneWrapper instance methods to move between the pane
 
 * `slideAllLeft()`
 * `slideAllRight()`
-* `setActive(index)` 
+* `setActive(index)`
 
 ### Example Code
 
-There is an simple React Native example project available within the 'Example' folder. If you want to run the example project and see the components in action simply check out the files, navigate to the 'Example' folder in a terminal, type `npm install` to install all the dependent modules, then type `react-native run-ios` or `react-native run-android` to see the example in action.
+There is a simple React Native example project available within the `Example` folder, but it targets React Native 0.53 and older Xcode/Android toolchains. Modern Xcode no longer ships the `instruments` binary used by the old CLI, so running `react-native run-ios` there will fail with errors like `unable to find utility "instruments"`. To try the library today, use a fresh modern React Native app instead (instructions below).
+
+### Try it in a fresh React Native app (modern setup)
+
+1. Create a new app:
+   - `npx react-native@latest init SlidingPanesTest`
+2. Add this package:
+   - Quick local install while developing this repo: `npm install /absolute/path/to/react-native-sliding-panes`
+   - Or pack and install (more reliable across environments):
+     - In this repo root: `npm pack` (note the generated `.tgz` file)
+     - In the new app: `npm install ../path-to/react-native-sliding-panes-<version>.tgz`
+3. iOS only: from the new app, run `npx pod-install`.
+4. Use the components in your app:
+
+```
+import React from 'react';
+import { View, Text, Button } from 'react-native';
+import { SlidingPane, SlidingPaneWrapper } from 'react-native-sliding-panes';
+
+export default function App() {
+  let wrapperRef = null;
+  let pane1 = null, pane2 = null, pane3 = null;
+
+  React.useEffect(() => {
+    pane1?.warpCenter();
+    pane2?.warpRight();
+    pane3?.warpRight();
+    if (wrapperRef) {
+      wrapperRef.childPanes = [pane1, pane2, pane3];
+    }
+  }, [wrapperRef, pane1, pane2, pane3]);
+
+  return (
+    <View style={{ flex: 1 }}>
+      <View style={{ flexDirection: 'row' }}>
+        <Button title="1" onPress={() => wrapperRef?.setActive(0)} />
+        <Button title="2" onPress={() => wrapperRef?.setActive(1)} />
+        <Button title="3" onPress={() => wrapperRef?.setActive(2)} />
+      </View>
+      <SlidingPaneWrapper style={{ flex: 1 }} ref={(r) => (wrapperRef = r)}>
+        <SlidingPane ref={(r) => (pane1 = r)}>
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>Pane 1</Text>
+          </View>
+        </SlidingPane>
+        <SlidingPane ref={(r) => (pane2 = r)}>
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>Pane 2</Text>
+          </View>
+        </SlidingPane>
+        <SlidingPane ref={(r) => (pane3 = r)}>
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <Text>Pane 3</Text>
+          </View>
+        </SlidingPane>
+      </SlidingPaneWrapper>
+    </View>
+  );
+}
+```
+
+5. Run:
+   - iOS: `npx react-native run-ios`
+   - Android: `npx react-native run-android`
+
+### Legacy Example (RN 0.53)
+
+The `Example` folder was built for RN 0.53. Running it on a modern macOS/Xcode will fail with `instruments` errors due to CLI/tooling changes. If you want to run it as-is, you would need to use an older Xcode and matching RN toolchain, which is not recommended. Prefer the modern setup above.
