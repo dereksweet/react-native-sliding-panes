@@ -149,7 +149,3 @@ export default function App() {
 5. Run:
    - iOS: `npx react-native run-ios`
    - Android: `npx react-native run-android`
-
-### Legacy Example (RN 0.53)
-
-The `Example` folder was built for RN 0.53. Running it on a modern macOS/Xcode will fail with `instruments` errors due to CLI/tooling changes. If you want to run it as-is, you would need to use an older Xcode and matching RN toolchain, which is not recommended. Prefer the modern setup above.
