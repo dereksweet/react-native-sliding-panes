@@ -83,9 +83,22 @@ Now you can use the SlidingPaneWrapper instance methods to move between the pane
 * `slideAllRight()`
 * `setActive(index)`
 
-### Example Code
+### Example app (in this repo)
 
-There is a simple React Native example project available within the `Example` folder, but it targets React Native 0.53 and older Xcode/Android toolchains. Modern Xcode no longer ships the `instruments` binary used by the old CLI, so running `react-native run-ios` there will fail with errors like `unable to find utility "instruments"`. To try the library today, use a fresh modern React Native app instead (instructions below).
+There is a simple React Native example project in the `Example` folder. To run it:
+
+1. From the repo root:
+   - `cd Example`
+   - `npm install`
+2. iOS: install CocoaPods
+   - `cd ios`
+   - If using Ruby 3.2+, set the logger workaround once in the shell:
+     - `export RUBYOPT="-r logger"`
+   - `pod install`
+   - `cd ..`
+3. Run:
+   - iOS: `react-native run-ios`
+   - Android: `react-native run-android`
 
 ### Try it in a fresh React Native app (modern setup)
 
@@ -150,6 +163,4 @@ export default function App() {
    - iOS: `npx react-native run-ios`
    - Android: `npx react-native run-android`
 
-### Legacy Example (RN 0.53)
 
-The `Example` folder was built for RN 0.53. Running it on a modern macOS/Xcode will fail with `instruments` errors due to CLI/tooling changes. If you want to run it as-is, you would need to use an older Xcode and matching RN toolchain, which is not recommended. Prefer the modern setup above.
