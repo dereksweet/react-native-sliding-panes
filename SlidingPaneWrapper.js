@@ -39,7 +39,7 @@ export default class SlidingPaneWrapper extends React.Component {
         }
       }
 
-      for (let i = index + 1; i < (this.childPanes.length - 1); i++) {
+      for (let i = index + 1; i < this.childPanes.length; i++) {
         if (i != this.activePane){
           this.childPanes[i].warpRight();
         }
