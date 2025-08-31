@@ -1,6 +1,6 @@
 # react-native-sliding-panes
 
-Compatible with modern React Native (tested with React Native 0.7x and React 18). If you need the legacy example project from RN 0.53, see the note at the bottom.
+Compatible with modern React Native (tested with React Native 0.7x and React 18).
 
 A simple set of React Native components that allow for views that slide in and out on command. They can be wired up to a Gesture Recognizer for swiping, or to touchable highlights for quick navigation. Here is a quick view of the example project:
 
@@ -99,6 +99,18 @@ There is a simple React Native example project in the `Example` folder. To run i
 3. Run:
    - iOS: `react-native run-ios`
    - Android: `react-native run-android`
+
+   If Android build fails with SDK not found, create `android/local.properties` with your SDK path:
+
+   ```properties
+   sdk.dir=/Users/<your-username>/Library/Android/sdk
+   ```
+
+   Or set an env var in your shell:
+
+   ```bash
+   export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+   ```
 
 ### Try it in a fresh React Native app (modern setup)
 
